@@ -13,5 +13,10 @@ class FullScreenActivity: BaseBindingActivity<ActivityFullScreenBinding>(
 
         // Get image url from extras and load
         binding.fullImage.setImageURI(intent.extras?.getString("image"))
+
+        // Add navigation icon listener
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 }

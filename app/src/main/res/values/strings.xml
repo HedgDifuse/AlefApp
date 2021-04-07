@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AlefApp</string>
     <string name="main_screen_name">Картинки</string>
+    <string name="full_screen_name">Просмотр</string>
     <string name="error_when_loading">Произошла ошибка при загрузке</string>
     <string name="retry">Повторить</string>
 </resources>
