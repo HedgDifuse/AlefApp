@@ -1,7 +1,7 @@
-package com.hedgdifuse.alefapp.ui
+package com.hedgdifuse.alefapp.ui.main
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.strictmode.Violation
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,7 +10,8 @@ import com.hedgdifuse.alefapp.Constants.TABLET_SPAN_COUNT
 import com.hedgdifuse.alefapp.R
 import com.hedgdifuse.alefapp.base.BaseBindingActivity
 import com.hedgdifuse.alefapp.databinding.ActivityMainBinding
-import com.hedgdifuse.alefapp.ui.adapter.GridRecyclerAdapter
+import com.hedgdifuse.alefapp.ui.fullscreen.FullScreenActivity
+import com.hedgdifuse.alefapp.ui.main.adapter.GridRecyclerAdapter
 import com.hedgdifuse.alefapp.viewmodel.ImagesViewModel
 import com.hedgdifuse.alefapp.viewmodel.state.ViewModelState
 
@@ -60,6 +61,14 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(ActivityMainBindin
         // On retry
         binding.mainErrorRefresh.setOnClickListener {
             viewModel.fetchImages()
+        }
+
+        // Setting adapter
+        adapter.onItemClick = {
+            val intent = Intent(this, FullScreenActivity::class.java)
+            intent.putExtra("image", it)
+
+            startActivity(intent)
         }
 
         // Setting RecyclerView

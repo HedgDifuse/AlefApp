@@ -1,4 +1,4 @@
-package com.hedgdifuse.alefapp.ui.adapter
+package com.hedgdifuse.alefapp.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +11,7 @@ import com.hedgdifuse.alefapp.databinding.ItemGridImageBinding
 class GridRecyclerAdapter: RecyclerView.Adapter<GridRecyclerAdapter.GridRecyclerViewHolder>() {
 
     var items = emptyList<String>()
+    var onItemClick: (String) -> Unit = {}
 
     override fun getItemCount() = items.size
 
@@ -29,6 +30,11 @@ class GridRecyclerAdapter: RecyclerView.Adapter<GridRecyclerAdapter.GridRecycler
         ItemGridImageBinding::bind
     ) {
         // Load image
-        fun load(image: String) = binding.gridImage.setImageURI(image)
+        fun load(image: String) {
+            binding.gridImage.setImageURI(image)
+
+            // Add click event
+            binding.root.setOnClickListener { onItemClick(image) }
+        }
     }
 }

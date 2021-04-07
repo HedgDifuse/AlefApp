@@ -6,7 +6,10 @@
     android:layout_margin="4dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="4dp"
-    app:cardBackgroundColor="@color/colorCard">
+    app:cardBackgroundColor="@color/colorCard"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?selectableItemBackground">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/grid_image"
