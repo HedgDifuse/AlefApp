@@ -35,6 +35,16 @@ class GridRecyclerAdapter: RecyclerView.Adapter<GridRecyclerAdapter.GridRecycler
 
             // Add click event
             binding.root.setOnClickListener { onItemClick(image) }
+
+            // Add similar height of width
+            binding.root.post {
+                with(binding.root.layoutParams) {
+                    height = binding.root.measuredWidth
+                }
+
+                // Update view with new height
+                binding.root.requestLayout()
+            }
         }
     }
 }
